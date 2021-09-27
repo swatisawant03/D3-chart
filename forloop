@@ -1,0 +1,14 @@
+   var elements = {
+            nodes: [],
+            edges: []
+        };
+        let nodeData = {};
+        let edgeData = {};
+        for (var i = 0; i <= 3; i++) {
+            nodeData[i] = { "data": { id: i, "text": "abc" } };
+            edgeData[i] = { "data": { id: i, "text": "efg" } };
+        }
+        elements.nodes.push(nodeData);
+        elements.edges.push(edgeData);
+        console.log(elements);
+       
