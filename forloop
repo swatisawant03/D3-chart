@@ -28,3 +28,27 @@
         elements.edges.push(edgeData);
         console.log(elements);
        
+    -----------------------------------------------------------------   
+  node_data = [];
+  edge_data = [];
+  temp = [];
+  
+  getTreeData() {
+
+    for (...) {
+    
+      nodeData = new INodeData();
+      this.node_data.push(nodeData);
+      
+      let edgeData: IEdgeData = new IEdgeData();
+      this.edge_data.push(edgeData);
+      
+      if (...) {
+        self.getTreeData()
+      }
+      
+    }
+    
+    this.temp = [...this.node_data, ...this.edge_data];
+    
+  }
