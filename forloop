@@ -29,19 +29,23 @@
         console.log(elements);
        
     -----------------------------------------------------------------   
-  node_data = [];
-  edge_data = [];
-  temp = [];
+  var temp={
+               node_data = [];
+               edge_data = [];
+      };
+      
+//  temp = [];
   
   getTreeData() {
-
+         let lv_nodeData = []
+         let lv_edgeData = []
     for (...) {
     
       nodeData = new INodeData();
-      this.node_data.push(nodeData);
+      this.lv_nodeData.push(nodeData);
       
       let edgeData: IEdgeData = new IEdgeData();
-      this.edge_data.push(edgeData);
+      this.lv_edgeData.push(edgeData);
       
       if (...) {
         self.getTreeData()
@@ -50,7 +54,7 @@
     }
     
     //this.temp = [...this.node_data, ...this.edge_data];
-    this.temp.push({this.node_data});
-    this.temp.push({this.edge_data});
+    this.temp.node_data.push({this.lv_nodeData});
+    this.temp.edge_data.push({this.lv_edgeData});
     
   }
