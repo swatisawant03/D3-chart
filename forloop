@@ -35,26 +35,42 @@
       };
       
 //  temp = [];
-  
+
+ let final_tree=[];
+
   getTreeData() {
+        
          let lv_nodeData = []
          let lv_edgeData = []
     for (...) {
-    
+      var tree = {}
       nodeData = new INodeData();
       this.lv_nodeData.push(nodeData);
       
       let edgeData: IEdgeData = new IEdgeData();
       this.lv_edgeData.push(edgeData);
-      
+    
+  
+    tree['Node'] = nodeData;
+    tree['Edges'] = edgeData;
+    final_tree[i] = dict
+    
+    }
+
+   console.log(final_tree)
+
+
       if (...) {
         self.getTreeData()
       }
       
     }
     
+    
+    
+    
     //this.temp = [...this.node_data, ...this.edge_data];
-    this.temp.node_data.push({this.lv_nodeData});
-    this.temp.edge_data.push({this.lv_edgeData});
+    //this.temp.node_data.push({this.lv_nodeData});
+    //this.temp.edge_data.push({this.lv_edgeData});
     
   }
