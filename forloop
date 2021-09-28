@@ -49,6 +49,8 @@
       
     }
     
-    this.temp = [...this.node_data, ...this.edge_data];
+    //this.temp = [...this.node_data, ...this.edge_data];
+    this.temp.push({this.node_data});
+    this.temp.push({this.edge_data});
     
   }
