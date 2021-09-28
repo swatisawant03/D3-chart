@@ -2,6 +2,22 @@
             nodes: [],
             edges: []
         };
+        let nodeData = []
+        let edgeData = []
+        for (var i = 0; i <= 3; i++) {
+            nodeData.push({ "data": { id: i, "text": "abc" }});
+            edgeData.push({ "data": { id: i, "text": "efg" }});
+        }
+        elements.nodes.push(nodeData);
+        elements.edges.push(edgeData);
+        console.log(elements);
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ var elements = {
+            nodes: [],
+            edges: []
+        };
         let nodeData = {};
         let edgeData = {};
         for (var i = 0; i <= 3; i++) {
