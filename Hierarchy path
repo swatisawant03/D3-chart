@@ -49,10 +49,10 @@ let finalData;
 function setTreeData(data){
   preName=data[0].name;
 for(var item in data){
-						hp=[];
+						hp="";
 						currentValue=data[item].parentId;
 						if(currentValue > preValue){
-														hp.push([preName + "/"+ data[item].name]);
+														hp=[preName + "/"+ data[item].name];
 														var b=data;
 														Object.keys(b).map(
 																			function(object){
@@ -64,7 +64,7 @@ for(var item in data){
 						else if(currentValue = preValue){
 															index=preName.lastIndexOf("/");
 															preName=preName.substring(0,index);
-															hp.push([preName + "/"+ data[item].name]);
+															hp=[preName + "/"+ data[item].name];
 															var b=data;
 															Object.keys(b).map(
 																				function(object){
