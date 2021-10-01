@@ -1,0 +1,80 @@
+const rowData = [
+    {
+      id: '1',
+      name: 'met1',
+      type: 'mission phase',
+      start: '00001',
+      end: '00002',
+      parentId: ''
+    },
+    {
+      id: '2',
+      name: 'met2',
+      type: 'mission phase',
+      start: '00001',
+      end: '00002',
+      parentId: '1'
+    },
+    {
+      id: '3',
+      name: 'met2-1',
+      type: 'mission phase',
+      start: '00001',
+      end: '00002',
+      parentId: '2'
+    },
+    {
+      id: '4',
+      name: 'met2-2',
+      type: 'mission phase',
+      start: '00001',
+      end: '00002',
+      parentId: '2'
+    },
+    {
+      id: '5',
+      name: 'met2-3',
+      type: 'mission phase',
+      start: '00001',
+      end: '00002',
+      parentId: '2'
+      //path:'hi'
+    }
+  ];
+  
+let m=new Map();  
+let preValue=0;
+let hp=[];
+let finalData;
+function setTreeData(data){
+  preName=data[0].name;
+for(var item in data){
+						hp=[];
+						currentValue=data[item].parentId;
+						if(currentValue > preValue){
+														hp.push([preName + "/"+ data[item].name]);
+														var b=data;
+														Object.keys(b).map(
+																			function(object){
+																			b[object]["path"]=hp;
+																				});
+														preValue=currentValue;
+														preName=preName + "/"+ data[item].name;
+													}
+						else if(currentValue = preValue){
+															index=preName.lastIndexOf("/");
+															preName=preName.substring(0,index);
+															hp.push([preName + "/"+ data[item].name]);
+															var b=data;
+															Object.keys(b).map(
+																				function(object){
+																				b[object]["path"]=hp;
+																					});		
+															preValue=currentValue;
+															preName=preName + "/"+ data[item].name;
+														}
+						console.log(data[item]);
+				}
+}
+  
+  setTreeData(rowData);
