@@ -24,7 +24,7 @@ var line = d3.line()
   id: "2",
   name: "met2",
   parentId: "1",
-  path: [["met1/met2"]],
+  path: ["met1/met2"],
   start: "00001",
   type: "mission phase"
 }
@@ -33,7 +33,7 @@ var line = d3.line()
   id: "3",
   name: "met2-1",
   parentId: "2",
-  path: [["met1/met2/met2-1"]],
+  path: ["met1/met2/met2-1"],
   start: "00001",
   type: "mission phase"
 }
@@ -42,7 +42,7 @@ var line = d3.line()
   id: "4",
   name: "met2-2",
   parentId: "2",
-  path: [["met1/met2/met2-2"]],
+  path: ["met1/met2/met2-2"],
   start: "00001",
   type: "mission phase"
 }
@@ -51,10 +51,10 @@ var line = d3.line()
   id: "5",
   name: "met2-3",
   parentId: "2",
-  path: [["met1/met2/met2-3"]],
+  path: ["met1/met2/met2-3"],
   start: "00001",
   type: "mission phase"
 }
 
 
-![image](https://user-images.githubusercontent.com/90889565/135566893-20c8b206-c081-42d5-a00c-e74d561ec63e.png)
+![image](https://user-images.githubusercontent.com/90889565/135567108-3360ef9a-5126-420f-abc9-25926f2f1545.png)
