@@ -48,6 +48,15 @@ const rowData = [
       end: '00002',
       parentId: '3'
       //path:'hi'   //path:"[met1 met2 met2-3]"
+    },
+    {
+      id: '7',
+      name: 'met3-2',
+      type: 'mission phase',
+      start: '00001',
+      end: '00002',
+      parentId: '3'
+      //path:'hi'   //path:"[met1 met2 met2-3]"
     }
   ];
   
@@ -56,13 +65,19 @@ let parentName;
 let hPath=[];
 let prevParentId="";
 function setTreeData(data){
+	  hPath.push(data[0].name);
+     // console.log(hPath);
    for(var i in data){
       myMap.set(data[i].id,data[i].name);
       parentName=myMap.get(data[i].parentId); 
       currentName=myMap.get(data[i].id); 
       if(parentName){
-            if(prevParentId && prevParentId == data[i].parentId){
-           			hPath.splice();
+      			if(data[i].parentId==""){
+             hPath.push(data[i].name);
+             prevParentId=data[i].parentId;
+            }
+             else if(data[i].parentId!=""){
+                hPath.pop();
                 hPath.push(parentName,currentName);
                 hPath = hPath.filter( function( item, index, inputArray ) 						{
                     return inputArray.indexOf(item) == index;
@@ -71,15 +86,7 @@ function setTreeData(data){
                 prevParentId=data[i].parentId;
                 }
             
-            else{
-           	 hPath.push(parentName,currentName);
-                hPath = hPath.filter( function( item, index, inputArray ) 						{
-                    return inputArray.indexOf(item) == index;
-                });
-                
-                console.log(hPath);
-                prevParentId=data[i].parentId;
-           }
+           
            }
       
       // met1/met2
@@ -102,7 +109,7 @@ function setTreeData(data){
    
    
    	//console.log("inside map elements as ID:name")	
-   //  myMap.forEach((value, key) => {
+    // myMap.forEach((value, key) => {
    // console.log(`${key}: ${value}`)
   	// })
   // console.log(myMap);
