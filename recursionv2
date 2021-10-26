@@ -1,0 +1,70 @@
+rowData=[];
+parentlinkString='';
+resultArray=[];
+data1=[];
+multiplicity=1;
+let data={
+    "configurationTree": [
+        {
+            "name": "Item_1",
+            "description": "",
+            "value": "",
+            "multiplicity":1,
+            "categories": [
+                {
+                    "name": "",
+                    "description": "",
+                    "value": "",
+                    "properties": [
+                        {
+                            "name": "",
+                            "description": ""
+                        }
+                    ]
+                }
+            ],
+            "children": [
+                {
+                    "name": "child_Item_1",
+                    "description": "",
+                    "value": "",
+                    "multiplicity":3,
+                    "children": [
+                        {
+                            "name": "child2_Item_1",
+                            "description": "",
+                            "value": "",
+                            "multiplicity":4,
+                            "properties": [
+                                {
+                                    "name": "",
+                                    "description": "",
+                                    "value": ""
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+};
+function setTreeData(parent){	
+multiplicity=parent.multiplicity > 1 ? (parent.multiplicity * multiplicity) : parent.multiplicity;
+		resultArray.push({name: [parentlinkString, parent.name], description: parent.description,multiplicity:multiplicity});
+		parentlinkString=parentlinkString =="" ? parent.name :parentlinkString+', '+ parent.name;
+     if(parent && parent.children){
+            parent.children.forEach( (child) => {
+            if(child){
+              setTreeData(child)
+            }    
+      		});
+      }
+      else{
+				console.log(resultArray);
+     		return ;
+     }
+	
+}
+
+setTreeData(data.configurationTree[0]);
