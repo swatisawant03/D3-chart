@@ -1,0 +1,76 @@
+rowData=[];
+parentlinkString='';
+resultArray=[];
+
+let data={
+    "configurationTree": [
+        {
+            "name": "Item_1",
+            "description": "",
+            "value": "",
+            "categories": [
+                {
+                    "name": "",
+                    "description": "",
+                    "value": "",
+                    "properties": [
+                        {
+                            "name": "",
+                            "description": ""
+                        }
+                    ]
+                }
+            ],
+            "children": [
+                {
+                    "name": "child_Item_1",
+                    "description": "",
+                    "value": "",
+                    "children": [
+                        {
+                            "name": "child2_Item_1",
+                            "description": "",
+                            "value": "",
+                            "properties": [
+                                {
+                                    "name": "",
+                                    "description": "",
+                                    "value": ""
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+};
+function setTreeData(parent, resultArray,parentlinkString){
+
+	if(parentlinkString){
+		resultArray.push({name: [parentlinkString, parent.name], description: parent.description});
+		parentlinkString=parentlinkString+','+parent.name;
+    	console.log(parentlinkString);
+     if(parent && parent.children){
+            parent.children.forEach( (child) => {
+            if(child){
+              setTreeData(child, resultArray,parentlinkString)
+            }    
+      		});
+      }
+      else{
+		    console.log(resultArray);
+     		return ;
+     }
+	}
+	else{
+        //1st time for parent
+        //console.log('inside parent');
+        resultArray.push({name: [parent.name], description: parent.description});  
+        parentlinkString=parent.name;  
+    	
+		parent.children.forEach( (child) => setTreeData(child, resultArray,parentlinkString));
+    }
+}
+
+setTreeData(data.configurationTree[0],rowData,parentlinkString);
