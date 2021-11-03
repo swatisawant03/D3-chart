@@ -1,0 +1,22 @@
+var gridOptions = {
+  columnDefs: [{
+    field: 'id'
+  }],
+  defaultColDef: {
+    flex: 1,
+  },
+  autoGroupColumnDef: {
+    headerName: 'name',
+    minWidth: 300,
+    cellRendererParams: {
+      suppressCount: true,
+    },
+  },
+  rowData: rowData,
+  treeData: true, // enable Tree Data mode
+  animateRows: true,
+  groupDefaultExpanded: -1, // expand all groups by default
+  getDataPath: function(data) {
+    return data.path;
+  },
+};
