@@ -1,0 +1,72 @@
+const rowData =     
+       [
+        {
+            "id": 1,
+            "name": "Demo1",
+            "parentId": 0
+        },
+        {
+            "id": 2,
+            "name": "Demo2",
+            "parentId": 1
+        },
+        {
+            "id": 3,
+            "name": "Demo3",
+            "start": "24/09/2021 11:00:00",
+            "end": "30/09/2021 12:00:00",
+            "parentId": 2
+        },
+        {
+            "id": 4,
+            "name": "Demo4",
+            "start": "24/09/2021 11:00:00",
+            "end": "",
+            "parentId": 3
+        }
+     ]
+  
+const myMap=new Map();
+let parentName;
+let hPath=[];
+let prevParentId="";
+function setTreeData(data){
+	  hPath.push(data[0].name);
+    // data[0].path=hPath;
+     // console.log(hPath);
+   for(var i in data){
+      myMap.set(data[i].id,data[i].name);
+      parentName=myMap.get(data[i].parentId); 
+      currentName=myMap.get(data[i].id); 
+      if(parentName){
+      			if(data[i].parentId==""){
+             hPath.push(data[i].name);
+             prevParentId=data[i].parentId;
+            }
+             else if(data[i].parentId!=""){
+                hPath.pop();
+                hPath.push(parentName,currentName);
+                	var j=  j<data/length ? (i+1) :i;
+                data[j].path = hPath.filter( function( item, index, inputArray ) 						{
+                    return inputArray.indexOf(item) == index;
+                });
+                console.log(hPath);
+                //data[j].path=hPath;
+                prevParentId=data[i].parentId;
+                }
+            
+           
+           }
+      
+      // met1/met2
+			
+   }
+   	//console.log("inside map elements as ID:name")	
+    // myMap.forEach((value, key) => {
+   // console.log(`${key}: ${value}`)
+  	// })
+  // console.log(myMap);
+}
+  
+  setTreeData(rowData);
+  console.log(rowData);
