@@ -1,0 +1,38 @@
+A nice clean way of opening and closing the angular material side-nav goes through the [opened] parameter on the component. You can pass it a boolean that you can manipulate to open/close the side-nav.
+
+app.html
+
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav [mode]="mode.value" [opened]="isShowing">
+    <p>
+      some nav here
+    </p>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <p><button mat-button (click)="toggleSidenav()">Toggle</button></p>
+    <p>
+      some text here
+    </p>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+Your callMethods functions can then cleanly call your toggle method if it's implemented as follows:
+
+app.ts
+
+isShowing: boolean;
+
+toggleSidenav() {
+   this.isShowing = !this.isShowing;
+}
+
+callMethods() {
+    this.toggleSidenav();
+}
+
+ 
+Share
+Improve this answer
+Follow
+edited Apr 19 at 8:57
+answered Nov 14 '19 at 8:29
